@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from "react-native";
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import IndexScreen from "./app/index";
+import Page2Screen from "./app/page2";
+import { createStaticNavigation } from "@react-navigation/native";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <KeyboardProvider>
+      <Navigation />
+    </KeyboardProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const RootStack = createNativeStackNavigator({
+  screens: {
+    index: IndexScreen,
+    page2: Page2Screen,
   },
 });
+
+const Navigation = createStaticNavigation(RootStack);

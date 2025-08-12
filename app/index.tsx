@@ -10,14 +10,18 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
+import { useNavigation } from "@react-navigation/core";
+
 export default function Page() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <AnimatedThing />
       <Button
         title="add screen to stack"
         onPress={() => {
-          router.navigate("/page2");
+          navigation.navigate("page2");
         }}
       />
       <View style={styles.flex} />
