@@ -17,7 +17,7 @@ export default function Page() {
       <Button
         title="add screen to stack"
         onPress={() => {
-          router.navigate("/(main)/(sublayout)/page2");
+          router.navigate("/page2");
         }}
       />
       <View style={styles.flex} />
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     gap: 20,
-    paddingTop: 20,
+    paddingTop: 50,
   },
   flex: {
     flex: 1,
